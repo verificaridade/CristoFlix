@@ -29,15 +29,12 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cristoflix - Diversão bíblica para toda a família</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     
-    <!-- Swiper.js for Carousel -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
@@ -49,6 +46,8 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
         body {
             font-family: 'Inter', sans-serif;
             background-color: #141414;
+            /* NEW: Added a subtle gradient to the body for a more dynamic and fluid background */
+            background: linear-gradient(180deg, #141414 0%, #0a0a0a 80%, #000000 100%);
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -213,10 +212,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                 transform: scale(1);
             }
         }
-        .section-divider {
-            height: 8px;
-            background-color: #222;
-        }
+        
         /* Enhanced Professional Hover Effect for Carousel Items */
         .swiper-slide {
             transition: all 0.3s ease;
@@ -316,6 +312,27 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                 padding: 12px 16px;
                 font-size: 16px;
                 border-radius: 8px;
+            }
+            
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                margin-bottom: 0;
+            }
+
+            .swiper-slide {
+                /* FIX: This ensures the slide's height perfectly matches its content, removing the black space below the image. */
+                height: auto;
+            }
+
+            .swiper-slide,
+            .slide-content {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            section {
+                padding-bottom: 24px;
             }
         }
         
@@ -429,19 +446,21 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             border-radius: 8px;
             border: 2px solid rgba(239, 68, 68, 0.3);
         }
+        
+        main {
+          overflow-y: auto;
+        }
+
     </style>
 </head>
 <body class="w-full">
 
-    <!-- Header -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 transition-all duration-300">
         <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo -->
             <div class="flex items-center">
                 <img src="https://placehold.co/200x60/141414/E50914?text=CRISTOFLIX" alt="Logo Cristoflix" class="h-7 md:h-9" width="144" height="36">
             </div>
             
-            <!-- Desktop Menu -->
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="#planos" class="text-white hover:text-red-500 transition-colors duration-300">Planos</a>
                 <a href="#beneficios" class="text-white hover:text-red-500 transition-colors duration-300">Benefícios</a>
@@ -451,7 +470,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                 </a>
             </nav>
             
-            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden text-white p-2">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -459,7 +477,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             </button>
         </div>
         
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-lg border-t border-gray-800">
             <nav class="flex flex-col p-4 space-y-4">
                 <a href="#planos" class="text-white hover:text-red-500 transition-colors duration-300 py-2">Planos</a>
@@ -472,24 +489,19 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
         <section class="hero-bg min-h-screen flex items-center justify-center text-center pt-20">
             <div class="container mx-auto px-4">
-                <!-- Main Headline -->
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight max-w-5xl mx-auto fade-in">
                     <span class="text-white">Diversão</span> 
                     <span class="text-red-500">Bíblica</span> 
                     <span class="text-white">para Toda a Família</span>
                 </h1>
                 
-                <!-- Subheadline -->
                 <p class="text-xl sm:text-2xl md:text-3xl mb-8 max-w-4xl mx-auto text-gray-200 fade-in">
                     <span class="font-bold text-white">Conteúdo cristão seguro para seus filhos</span>
                 </p>
                 
-                <!-- Social Proof -->
                 <div class="mb-8 fade-in">
                     <p class="text-lg text-gray-300 mb-2">Já escolhido por</p>
                     <p class="text-2xl font-bold text-green-500">+ 847 famílias</p>
@@ -497,14 +509,12 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
 
 
                 
-                <!-- CTA Button -->
                 <div class="fade-in mb-8">
                     <a href="#planos" class="btn-green text-white font-bold text-xl sm:text-2xl md:text-3xl px-8 sm:px-12 py-4 sm:py-6 rounded-lg inline-block transform hover:scale-105 transition-all duration-300">
                         COMEÇAR AGORA
                     </a>
                 </div>
                 
-                <!-- Trust Indicators -->
                 <div class="flex flex-wrap justify-center items-center gap-6 md:gap-8 fade-in">
                     <div class="flex items-center space-x-2">
                         <span class="text-green-500 text-2xl">✓</span>
@@ -516,19 +526,15 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                     </div>
 				</div>
 
-                <!-- Logo que aparece com o scroll -->
                 <div id="scroll-reveal-logo" class="mt-8">
                     <img src="images/cristoflix.png" alt="Logo Cristoflix" class="h-10 mx-auto">
                 </div>
             </div>
         </section>
-
-        <div class="section-divider"></div>
 		
-		<!-- Multi-device Section -->
-        <section class="py-12 md:py-20">
+		<section class="py-16 md:py-24">
             <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-8 items-center">
                     <div class="text-center md:text-left">
                         <h2 class="text-3xl md:text-5xl font-bold mb-4">Assista em qualquer lugar.</h2>
                         <p class="text-lg md:text-xl">Leve a Cristoflix com você. Assista na TV da sala, no tablet durante a viagem, no notebook ou no celular.</p>
@@ -539,11 +545,8 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                 </div>
             </div>
         </section>
-        
-        <div class="section-divider"></div>
 
-        <!-- New Info Section -->
-        <section class="py-16 md:py-24 text-center bg-black">
+        <section class="py-16 md:py-24 text-center bg-black/50">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-5xl font-black text-red-500 mb-6 uppercase tracking-wider fade-in">
                     Seu filho mais próximo de Deus
@@ -553,21 +556,15 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                 </p>
             </div>
         </section>
-
-        <div class="section-divider"></div>
 		
-		
-
-        <!-- REBUILT DYNAMIC CAROUSEL SECTION -->
-        <section class="py-12 md:py-20 bg-black overflow-hidden">
+        <section class="py-16 md:py-24 bg-black/50 overflow-hidden">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-8 md:mb-12">
                      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 fade-in">+1000 HORAS DE CONTEÚDO BÍBLICO INFANTIL!</h2>
                      <p class="text-base sm:text-lg md:text-xl text-gray-400 fade-in">Histórias, filmes bíblicos, atividades e jogos inspirados na palavra de Deus!</p>
                 </div>
 
-                <!-- ADDED TEXT SECTION 1 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center my-8 md:my-12 lg:my-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-8 lg:gap-12 items-center my-8 md:my-12 lg:my-20">
                     <div class="text-center md:text-left order-2 md:order-1">
                         <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 uppercase fade-in">E a partir de hoje ficou fácil <span class="text-red-500">proteger, alfabetizar e ensinar a palavra de Deus</span> aos pequenos</h2>
                         <p class="text-gray-300 mb-3 md:mb-4 text-sm sm:text-base md:text-lg fade-in">Com os nossos filmes bíblicos ficou muito mais fácil, inovador e eficiente! Muitas vezes para as crianças se torna cansativo ter apenas que ler para aprender.</p>
@@ -578,11 +575,9 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                     </div>
                 </div>
 
-                <!-- Filmes Carousel -->
                 <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 fade-in">Filmes que Ensinam</h3>
                 <div class="swiper-container movie-carousel relative mb-8 md:mb-12">
                     <div class="swiper-wrapper">
-                        <!-- Slide 1 to 5 for movies -->
                         <div class="swiper-slide"><div class="slide-content"><img src="images/Filmes-1.webp" alt="Capa do Filme 1" class="w-full"><div class="slide-overlay"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg></div></div></div></div>
                         <div class="swiper-slide"><div class="slide-content"><img src="images/Filmes-2.webp" alt="Capa do Filme 2" class="w-full"><div class="slide-overlay"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg></div></div></div></div>
                         <div class="swiper-slide"><div class="slide-content"><img src="images/Filmes-3.webp" alt="Capa do Filme 3" class="w-full"><div class="slide-overlay"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg></div></div></div></div>
@@ -593,8 +588,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                     <div class="swiper-button-prev hidden sm:flex"></div>
                 </div>
 
-                <!-- ADDED TEXT SECTION 2 -->
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center my-8 md:my-12 lg:my-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-8 lg:gap-12 items-center my-8 md:my-12 lg:my-20">
                     <div class="md:order-2 text-center md:text-left">
                         <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 uppercase fade-in">Para deixar a <span class="text-red-500">plataforma ainda mais completa</span>, disponibilizamos dezenas de jogos interativos!</h2>
                         <p class="text-gray-300 mb-3 md:mb-4 text-sm sm:text-base md:text-lg fade-in">Estimulando a <span class="text-white font-semibold">capacidade cognitiva</span> e <span class="text-white font-semibold">intelectual</span> do seu filho.</p>
@@ -604,12 +598,10 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                     </div>
                 </div>
 
-                <!-- Atividades Carousel -->
                 <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 fade-in">Atividades Interativas</h3>
                 <div class="swiper-container activity-carousel relative">
                     <div class="swiper-wrapper">
-                        <!-- Slide 1 to 5 for activities -->
-                         <div class="swiper-slide"><div class="slide-content"><img src="images/Atividade-1.webp" alt="Atividade 1" class="w-full"><div class="slide-overlay"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg></div></div></div></div>
+                        <div class="swiper-slide"><div class="slide-content"><img src="images/Atividade-1.webp" alt="Atividade 1" class="w-full"><div class="slide-overlay"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg></div></div></div></div>
                          <div class="swiper-slide"><div class="slide-content"><img src="images/Atividade-2.webp" alt="Atividade 2" class="w-full"><div class="slide-overlay"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg></div></div></div></div>
                          <div class="swiper-slide"><div class="slide-content"><img src="images/Atividade-3.webp" alt="Atividade 3" class="w-full"><div class="slide-overlay"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg></div></div></div></div>
                          <div class="swiper-slide"><div class="slide-content"><img src="images/Atividade-4.webp" alt="Atividade 4" class="w-full"><div class="slide-overlay"><div class="play-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg></div></div></div></div>
@@ -621,26 +613,23 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             </div>
         </section>
 
-        <div class="section-divider"></div>
-
-        <!-- Benefits Section -->
-        <section id="beneficios" class="py-12 md:py-20">
+        <section id="beneficios" class="py-16 md:py-24">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 fade-in">Tranquilidade para os pais, diversão para os filhos.</h2>
                 <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-gray-300 fade-in">Ofereça um ambiente digital seguro que fortalece os valores da sua família.</p>
                 
-                <!-- Family Image -->
                 <div class="mb-8 md:mb-12 fade-in">
                     <img src="images/maepaiefilho.webp" alt="Família feliz, pai, mãe e filho, usando um notebook juntos." class="max-w-sm md:max-w-md mx-auto rounded-lg shadow-lg" width="448" height="299">
                 </div>
-                
-                <!-- Pricing Plans Section -->
-        <section id="planos" class="py-12 md:py-20">
+               
+            </div>
+        </section>
+        
+        <section id="planos" class="py-16 md:py-24">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 fade-in">Escolha o plano ideal para sua família</h2>
                 <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 text-gray-300 fade-in">Comece a transformar o tempo de tela dos seus filhos hoje mesmo.</p>
                 <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-6 md:gap-8">
-                    <!-- Basic Plan -->
                     <div class="plan-card w-full max-w-sm p-6 md:p-8 rounded-lg fade-in">
                         <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Básico Mensal</h3>
                         <p class="text-4xl md:text-5xl font-black mb-4">R$ 14,90</p>
@@ -655,7 +644,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                             QUERO ASSINAR
                         </a>
                     </div>
-                    <!-- Premium Plan -->
                     <div class="plan-card premium w-full max-w-sm p-6 md:p-8 rounded-lg relative fade-in">
                         <div class="premium-badge">MAIS VENDIDO</div>
                         
@@ -665,7 +653,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                             <p class="text-gray-400 text-sm md:text-base mb-4">(equivalente a R$ 6,98/mês)</p>
                         </div>
                         
-                        <!-- Brinde Kit de Desenhos com mais ênfase -->
                         <figure class="my-6 p-4 bg-green-500/10 border-2 border-dashed border-green-400 rounded-lg text-center">
                             <img src="images/kit.jpg" alt="Kit de Desenhos para Colorir" class="rounded-lg shadow-lg mx-auto mb-3 w-full max-w-xs" width="300" height="300">
                             <figcaption class="text-green-300 font-bold text-lg uppercase tracking-wider">+ Brinde Exclusivo</figcaption>
@@ -689,32 +676,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             </div>
         </section>
 
-        <div class="section-divider"></div>
-				
-		
-				
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                    <!-- Benefit 1: 100% Bíblico -->
-                    <div class="flex flex-col items-center hover-card p-4 rounded-lg">
-                        <div class="h-16 w-16 md:h-20 md:w-20 mb-3 md:mb-4 rounded-full bg-gray-800 flex items-center justify-center text-2xl md:text-4xl">📖</div>
-                        <h3 class="text-lg md:text-xl font-bold mb-2">100% Bíblico</h3>
-                        <p class="text-gray-400 text-sm md:text-base">Todo o catálogo é baseado em histórias e princípios cristãos.</p>
-                    </div>
-                    <!-- Benefit 2: Seguro para Crianças -->
-                    <div class="flex flex-col items-center hover-card p-4 rounded-lg">
-                        <div class="h-16 w-16 md:h-20 md:w-20 mb-3 md:mb-4 rounded-full bg-gray-800 flex items-center justify-center text-2xl md:text-4xl">🛡️</div>
-                        <h3 class="text-lg md:text-xl font-bold mb-2">Seguro para Crianças</h3>
-                        <p class="text-gray-400 text-sm md:text-base">Sem propagandas ou conteúdos inadequados. Paz de espírito para você.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Social Proof Section -->
-        <section class="py-16 md:py-24 bg-gradient-to-r from-gray-900/50 to-black/50">
+        <section class="py-16 md:py-24 bg-gray-900/50">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-5xl font-bold mb-8">Reconhecido e Aprovado</h2>
                 <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
@@ -722,17 +684,13 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                 </p>
                 
                 <div class="space-y-4">
-                    <!-- Placeholder for News Reports -->
                     <img src="images/NOTICIA-1.webp" alt="Reportagem sobre a Cristoflix" class="rounded-lg shadow-lg" width="800" height="450">
                     <img src="images/NOTICIA-2.webp" alt="Outra reportagem sobre a Cristoflix" class="rounded-lg shadow-lg" width="800" height="450">
                 </div>
             </div>
         </section>
-
-        <div class="section-divider"></div>
         
-        <!-- NEW VALUE PROPOSITION SECTION -->
-        <section class="py-12 md:py-20 text-center">
+        <section class="py-16 md:py-24 text-center">
             <div class="container mx-auto px-4 max-w-3xl">
                 <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide mb-4">Agora nós temos apenas uma pergunta para você:</h2>
                 <p class="text-3xl md:text-5xl font-black text-red-500 my-6 leading-tight">Quanto vale a vida espiritual e psicológica do seu filho(a)?</p>
@@ -743,8 +701,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             </div>
         </section>
 
-        <!-- TESTIMONIALS SECTION -->
-        <section class="py-16 md:py-24 bg-black">
+        <section class="py-16 md:py-24 bg-black/50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">
@@ -762,14 +719,11 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                     </div>
                 </div>
                 
-                <!-- Testimonials Container -->
                 <div class="max-w-4xl mx-auto">
                     <div id="testimonials-container" class="space-y-6">
-                        <!-- Os testemunhos serão gerados aqui via JavaScript -->
-                    </div>
+                        </div>
                 </div>
 
-                <!-- Add Comment Section -->
                 <div class="mt-12 max-w-2xl mx-auto">
                     <div class="bg-gray-800/50 p-4 sm:p-6 rounded-xl border border-red-500/20">
                         <h3 class="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 text-center">
@@ -814,8 +768,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             </div>
         </section>
 
-        <!-- Final CTA -->
-        <section class="py-16 md:py-24 text-center bg-gradient-to-r from-red-900/20 to-red-800/20">
+        <section class="py-16 md:py-24 text-center bg-red-900/10">
              <div class="container mx-auto px-4">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold max-w-4xl mx-auto mb-6 fade-in">
                     Dê aos seus filhos uma <span class="text-red-500">diversão que educa</span>
@@ -834,8 +787,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             </div>
         </section>
 
-        <!-- Guarantee Section -->
-        <section class="py-16 md:py-24 bg-gradient-to-r from-gray-900/50 to-black/50">
+        <section class="py-16 md:py-24 bg-gray-900/50">
             <div class="container mx-auto px-4 text-center">
                 <div class="max-w-4xl mx-auto">
                     <div class="bg-gray-800/30 p-8 rounded-2xl border border-red-500/20">
@@ -851,7 +803,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                             Se você não ficar 100% satisfeito com a Cristoflix nos primeiros 30 dias, 
                             devolvemos todo o seu dinheiro. Sem perguntas, sem complicações.
                         </p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-6 mt-8">
                             <div class="text-center">
                                 <div class="text-3xl mb-2">💰</div>
                                 <h3 class="font-bold text-white mb-2">Reembolso Total</h3>
@@ -873,7 +825,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             </div>
         </section>
 
-        <!-- FAQ SECTION -->
         <section class="py-16 md:py-24">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
@@ -888,7 +839,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                 <div class="max-w-3xl mx-auto space-y-6">
                     
                     
-                    <!-- FAQ Item 2 -->
                     <div class="bg-gray-800/50 p-6 rounded-lg fade-in">
                         <h3 class="text-xl font-bold text-white mb-3">Posso cancelar quando quiser?</h3>
                         <p class="text-gray-300">
@@ -896,7 +846,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                         </p>
                     </div>
                     
-                    <!-- FAQ Item 3 -->
                     <div class="bg-gray-800/50 p-6 rounded-lg fade-in">
                         <h3 class="text-xl font-bold text-white mb-3">O conteúdo é realmente 100% seguro?</h3>
                         <p class="text-gray-300">
@@ -904,7 +853,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                         </p>
                     </div>
                     
-                    <!-- FAQ Item 4 -->
                     <div class="bg-gray-800/50 p-6 rounded-lg fade-in">
                         <h3 class="text-xl font-bold text-white mb-3">Em quais dispositivos posso assistir?</h3>
                         <p class="text-gray-300">
@@ -912,7 +860,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                         </p>
                     </div>
 
-                    <!-- FAQ Item 5 -->
                     <div class="bg-gray-800/50 p-6 rounded-lg fade-in">
                         <h3 class="text-xl font-bold text-white mb-3">Qual a diferença entre os planos?</h3>
                         <p class="text-gray-300">
@@ -920,7 +867,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                         </p>
                     </div>
 
-                    <!-- FAQ Item 6 -->
                     <div class="bg-gray-800/50 p-6 rounded-lg fade-in">
                         <h3 class="text-xl font-bold text-white mb-3">Como funciona a garantia de 30 dias?</h3>
                         <p class="text-gray-300">
@@ -928,7 +874,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                         </p>
                     </div>
 
-                    <!-- FAQ Item 7 -->
                     <div class="bg-gray-800/50 p-6 rounded-lg fade-in">
                         <h3 class="text-xl font-bold text-white mb-3">O conteúdo é atualizado regularmente?</h3>
                         <p class="text-gray-300">
@@ -936,7 +881,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                         </p>
                     </div>
 
-                    <!-- FAQ Item 8 -->
                     <div class="bg-gray-800/50 p-6 rounded-lg fade-in">
                         <h3 class="text-xl font-bold text-white mb-3">Posso assistir offline?</h3>
                         <p class="text-gray-300">
@@ -947,15 +891,14 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contato" class="py-12 md:py-20 bg-black">
+        <section id="contato" class="py-16 md:py-24 bg-black/50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-8 md:mb-12">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 fade-in">Entre em Contato</h2>
                     <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto fade-in">Tem dúvidas? Nossa equipe está pronta para ajudar você e sua família.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 md:gap-12 max-w-4xl mx-auto">
                     <div class="fade-in">
                         <h3 class="text-xl font-bold mb-4">Informações de Contato</h3>
                         <div class="space-y-4">
@@ -1007,7 +950,6 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
         </section>
     </main>
     
-    <!-- Footer -->
     <footer class="py-8 md:py-12 bg-black border-t border-gray-800">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -1172,6 +1114,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
+
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
@@ -1427,7 +1370,7 @@ src="https://www.facebook.com/tr?id=1040195711334155&ev=PageView&noscript=1"
                         <div class="text-center">
                             <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Criar Conta Necessário</h3>
